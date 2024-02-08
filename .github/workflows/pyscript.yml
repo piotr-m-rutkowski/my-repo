@@ -1,0 +1,14 @@
+name: Execute Python Script
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+        uses: actions/checkout@v2 # Checkout the repository content to github runner.
+
+      - name: Execute Python script # Run the run.py to get the latest data
+        run: python .github/worfklows/example.py
