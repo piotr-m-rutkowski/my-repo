@@ -1,4 +1,4 @@
-name: Execute Python Script
+name: Execute Python Script Subfolder
 
 on:
   workflow_dispatch:
