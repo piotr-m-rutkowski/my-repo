@@ -42,4 +42,3 @@ for pmid in pmids[:5]:  # get abstracts for the first 5 results
     if abstract:
         print(f"PMID: {pmid}")
         print("Abstract:", abstract)
-        print()
