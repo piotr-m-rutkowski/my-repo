@@ -12,8 +12,6 @@ df = df.iloc[:, :columns_threshold + 1]
 #df = df.dropna(subset=[id_column], axis=1)
 df = df[df['id'].notna()]
 
-
-
 print(df)
 df.to_csv('F:/Users/piotr/Downloads/System_engineer_question3v2.csv', index=False)
 
