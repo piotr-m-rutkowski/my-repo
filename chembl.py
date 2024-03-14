@@ -2,6 +2,7 @@
 import requests
 import json
 import csv
+import tkinter
 
 #requests.get(url, params={key: value}, args)
 id = input('Input the number part of Chembl ID, e.g. 10 for CHEMBL10: ')
