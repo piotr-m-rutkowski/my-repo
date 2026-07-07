@@ -1,3 +1,22 @@
+"""
+pubmed_search.py
+
+Minimal wrapper around the NCBI E-utilities API for searching PubMed
+and fetching abstracts by PMID.
+
+KNOWN BUG (unfixed as of this commit):
+    fetch_pubmed_abstract() requests retmode="json" from efetch.fcgi,
+    but efetch does not return JSON for the pubmed database - it returns
+    XML regardless of retmode. response.json() will therefore raise
+    json.JSONDecodeError, or fail silently on the wrong key structure
+    if it doesn't. This function needs to be rewritten to parse XML
+    (e.g. via xml.etree.ElementTree or Bio.Entrez) before it can be
+    trusted. Do not use in production as-is.
+
+No API key, no rate limiting, no HTTP error handling implemented.
+NCBI's unauthenticated rate limit is 3 requests/second.
+"""
+
 import requests
 
 def search_pubmed(query):
@@ -6,7 +25,7 @@ def search_pubmed(query):
         "db": "pubmed",
         "retmode": "json",
         "term": query
-    }
+             }
     
     response = requests.get(base_url, params=params)
     data = response.json()
@@ -22,7 +41,7 @@ def fetch_pubmed_abstract(pmid):
         "db": "pubmed",
         "retmode": "json",
         "id": pmid
-    }
+             }
     
     response = requests.get(base_url, params=params)
     data = response.json()
