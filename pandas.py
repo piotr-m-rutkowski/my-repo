@@ -15,6 +15,4 @@ df = df[df['id'].notna()]
 print(df)
 df.to_csv('F:/Users/piotr/Downloads/System_engineer_question3v2.csv', index=False)
 
-import csvkit
-
 ##csvsql --dialect postgresql --snifflimit 1000 --no-constraints F:/Users/piotr/Downloads/System_engineer_question3v2.csv [export columns for postgres table creation]
