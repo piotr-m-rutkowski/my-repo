@@ -14,7 +14,7 @@ KNOWN BUG (unfixed as of this commit):
     trusted. Do not use in production as-is.
 
 No API key, no rate limiting, no HTTP error handling implemented.
-NCBI's unauthenticated rate limit is 3 requests/second.
+NCBI's unauthenticated rate limit is 3 requests/second (unconfirmed, find documentation).
 """
 
 import requests
